@@ -12,7 +12,7 @@ import java.util.concurrent.Exchanger;
  *
  * @author colin
  */
-public class App {
+public class KnockKnock {
 
     /**
      * Main method
