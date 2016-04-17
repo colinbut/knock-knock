@@ -18,16 +18,20 @@ public class Alice implements Runnable {
     private Exchanger<String> exchanger;
 
     public Alice(String name, Exchanger<String> exchanger) {
+        this.name = name;
         this.exchanger = exchanger;
     }
 
     @Override
     public void run() {
+
+        String whoSaysWhat = name + " says: ";
+
         try {
-            String reply = exchanger.exchange("Who's there?");
+            String reply = exchanger.exchange(whoSaysWhat + "Who's there?");
             System.out.println(reply);
 
-            reply = exchanger.exchange("Dozen" + " who?");
+            reply = exchanger.exchange(whoSaysWhat + "Dozen" + " who?");
             System.out.println(reply);
 
             reply = exchanger.exchange("");

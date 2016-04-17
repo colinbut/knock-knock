@@ -26,14 +26,17 @@ public class Joe implements Runnable {
 
     @Override
     public void run() {
+
+        String whoSaysWhat = name + " says: ";
+
         try {
-            String reply = exchanger.exchange("Knock Knock");
+            String reply = exchanger.exchange(whoSaysWhat + "Knock Knock");
             System.out.println(reply);
 
-            reply = exchanger.exchange("Dozen");
+            reply = exchanger.exchange(whoSaysWhat + "Dozen");
             System.out.println(reply);
 
-            reply = exchanger.exchange("Doesn't anybody want to let me in!");
+            reply = exchanger.exchange(whoSaysWhat + "Doesn't anybody want to let me in!");
 
 
         } catch (InterruptedException e) {
