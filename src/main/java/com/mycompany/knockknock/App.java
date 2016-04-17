@@ -1,13 +1,19 @@
 package com.mycompany.knockknock;
 
 /**
- * Hello world!
+ * Knock Knock
  *
+ * @author colin
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+
+    /**
+     * Main method
+     *
+     * @param args
+     */
+    public static void main( String[] args ) {
         System.out.println( "Hello World!" );
     }
 }
