@@ -16,7 +16,12 @@ public class Joe extends Person implements Runnable {
 
     private Exchanger<String> exchanger;
 
-
+    /**
+     * Constructor
+     *
+     * @param name name of the Person
+     * @param exchanger a mechanism to exchange
+     */
     public Joe(String name, Exchanger<String> exchanger) {
         super(name);
         this.exchanger = exchanger;
@@ -27,13 +32,13 @@ public class Joe extends Person implements Runnable {
     public void run() {
 
         try {
-            String reply = exchanger.exchange(whoSaysWhat() + "Knock Knock");
+            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Knock Knock");
             System.out.println(reply);
 
-            reply = exchanger.exchange(whoSaysWhat() + "Dozen");
+            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen");
             System.out.println(reply);
 
-            reply = exchanger.exchange(whoSaysWhat() + "Doesn't anybody want to let me in!");
+            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Doesn't anybody want to let me in!");
 
 
         } catch (InterruptedException e) {

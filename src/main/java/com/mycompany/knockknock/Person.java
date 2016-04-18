@@ -12,15 +12,15 @@ package com.mycompany.knockknock;
  */
 public class Person {
 
-    protected String name;
+    protected final String name;
 
-
+    /**
+     * Constructor
+     *
+     * @param name name of the Person
+     */
     public Person(String name) {
         this.name = name;
     }
 
-
-    public String whoSaysWhat() {
-        return name + " says: ";
-    }
 }

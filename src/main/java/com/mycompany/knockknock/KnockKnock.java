@@ -15,12 +15,9 @@ import java.util.concurrent.Exchanger;
 public class KnockKnock {
 
     /**
-     * Main method
-     *
-     * @param args
+     * Starts the joke around
      */
-    public static void main( String[] args ) {
-
+    public static void startJoke() {
         final Exchanger<String> exchanger = new Exchanger<>();
 
         Joe joe = new Joe("Joe", exchanger);
@@ -28,6 +25,26 @@ public class KnockKnock {
 
         new Thread(joe).start();
         new Thread(alice).start();
+    }
 
+    /**
+     * Returns a string that says '[Person name] says: '
+     *
+     * @param name the name of the Person
+     * @return a {@link String} that says '[Person name] says: '
+     */
+    public static String displayWhoSaysWhat(String name) {
+        return name + " says: ";
+    }
+
+
+
+    /**
+     * Main method
+     *
+     * @param args
+     */
+    public static void main( String[] args ) {
+        KnockKnock.startJoke();
     }
 }
