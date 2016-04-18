@@ -12,14 +12,13 @@ import java.util.concurrent.Exchanger;
  *
  * @author colin
  */
-public class Joe implements Runnable {
+public class Joe extends Person implements Runnable {
 
-    private String name;
     private Exchanger<String> exchanger;
 
 
     public Joe(String name, Exchanger<String> exchanger) {
-        this.name = name;
+        super(name);
         this.exchanger = exchanger;
     }
 
@@ -27,16 +26,14 @@ public class Joe implements Runnable {
     @Override
     public void run() {
 
-        String whoSaysWhat = name + " says: ";
-
         try {
-            String reply = exchanger.exchange(whoSaysWhat + "Knock Knock");
+            String reply = exchanger.exchange(whoSaysWhat() + "Knock Knock");
             System.out.println(reply);
 
-            reply = exchanger.exchange(whoSaysWhat + "Dozen");
+            reply = exchanger.exchange(whoSaysWhat() + "Dozen");
             System.out.println(reply);
 
-            reply = exchanger.exchange(whoSaysWhat + "Doesn't anybody want to let me in!");
+            reply = exchanger.exchange(whoSaysWhat() + "Doesn't anybody want to let me in!");
 
 
         } catch (InterruptedException e) {

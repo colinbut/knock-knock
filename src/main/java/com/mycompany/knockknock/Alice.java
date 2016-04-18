@@ -12,26 +12,23 @@ import java.util.concurrent.Exchanger;
  *
  * @author colin
  */
-public class Alice implements Runnable {
+public class Alice extends Person implements Runnable {
 
-    private String name;
     private Exchanger<String> exchanger;
 
     public Alice(String name, Exchanger<String> exchanger) {
-        this.name = name;
+        super(name);
         this.exchanger = exchanger;
     }
 
     @Override
     public void run() {
 
-        String whoSaysWhat = name + " says: ";
-
         try {
-            String reply = exchanger.exchange(whoSaysWhat + "Who's there?");
+            String reply = exchanger.exchange(whoSaysWhat() + "Who's there?");
             System.out.println(reply);
 
-            reply = exchanger.exchange(whoSaysWhat + "Dozen" + " who?");
+            reply = exchanger.exchange(whoSaysWhat() + "Dozen" + " who?");
             System.out.println(reply);
 
             reply = exchanger.exchange("");
