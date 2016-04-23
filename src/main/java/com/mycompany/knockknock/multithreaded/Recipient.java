@@ -3,16 +3,16 @@
  * | Copyright © 2016 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.knockknock;
+package com.mycompany.knockknock.multithreaded;
 
 import java.util.concurrent.Exchanger;
 
 /**
- * First person - Punster
+ * Second Person - Recipient
  *
  * @author colin
  */
-public class Punster extends Person implements Runnable {
+public class Recipient extends Person implements Runnable {
 
     private Exchanger<String> exchanger;
 
@@ -22,7 +22,7 @@ public class Punster extends Person implements Runnable {
      * @param name name of the Person
      * @param exchanger a mechanism to exchange
      */
-    public Punster(String name, Exchanger<String> exchanger) {
+    public Recipient(String name, Exchanger<String> exchanger) {
         super(name);
         this.exchanger = exchanger;
     }
@@ -32,13 +32,14 @@ public class Punster extends Person implements Runnable {
     public void run() {
 
         try {
-            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Knock Knock");
+            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Who's there?");
             System.out.println(reply);
 
-            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen");
+            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen" + " who?");
             System.out.println(reply);
 
-            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Doesn't anybody want to let me in!");
+            reply = exchanger.exchange("");
+            System.out.println(reply);
 
 
         } catch (InterruptedException e) {
