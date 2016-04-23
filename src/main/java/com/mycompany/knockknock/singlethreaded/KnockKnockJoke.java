@@ -25,14 +25,20 @@ public class KnockKnockJoke {
         Punster joe = new Punster(PUNSTER_NAME);
         Recipient alice = new Recipient(RECIPIENT_NAME);
 
-        System.out.println(joe.knockOnDoor());
-        System.out.println(alice.giveResponse());
+        String knockingOnDoor = joe.knockOnDoor();
+        System.out.println(knockingOnDoor);
+
+        String initialResponse = alice.giveResponse();
+        System.out.println(initialResponse);
 
         String reply = joe.giveVariableResponse();
         System.out.println(reply);
 
-        System.out.println(alice.giveRepitionResponse(reply));
-        System.out.println(joe.deliverPunchLine());
+        String askingWho = alice.giveRepitionResponse(reply);
+        System.out.println(askingWho);
+
+        String punchLine = joe.deliverPunchLine();
+        System.out.println(punchLine);
     }
 
 }
