@@ -8,11 +8,11 @@ package com.mycompany.knockknock;
 import java.util.concurrent.Exchanger;
 
 /**
- * Second Person - Alice
+ * First person - JokeTeller
  *
  * @author colin
  */
-public class Alice extends Person implements Runnable {
+public class JokeTeller extends Person implements Runnable {
 
     private Exchanger<String> exchanger;
 
@@ -22,7 +22,7 @@ public class Alice extends Person implements Runnable {
      * @param name name of the Person
      * @param exchanger a mechanism to exchange
      */
-    public Alice(String name, Exchanger<String> exchanger) {
+    public JokeTeller(String name, Exchanger<String> exchanger) {
         super(name);
         this.exchanger = exchanger;
     }
@@ -32,14 +32,13 @@ public class Alice extends Person implements Runnable {
     public void run() {
 
         try {
-            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Who's there?");
+            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Knock Knock");
             System.out.println(reply);
 
-            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen" + " who?");
+            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen");
             System.out.println(reply);
 
-            reply = exchanger.exchange("");
-            System.out.println(reply);
+            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Doesn't anybody want to let me in!");
 
 
         } catch (InterruptedException e) {

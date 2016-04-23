@@ -8,11 +8,14 @@ package com.mycompany.knockknock;
 import java.util.concurrent.Exchanger;
 
 /**
- * Knock Knock
+ * Knock Knock joke
  *
  * @author colin
  */
 public class KnockKnock {
+
+    private static final String JOKE_TELLER_NAME = "Joe";
+    private static final String JOKE_RECIPIENT = "Alice";
 
     /**
      * Starts the joke around
@@ -20,11 +23,11 @@ public class KnockKnock {
     public static void startJoke() {
         final Exchanger<String> exchanger = new Exchanger<>();
 
-        Joe joe = new Joe("Joe", exchanger);
-        Alice alice = new Alice("Alice", exchanger);
+        JokeTeller jokeTeller = new JokeTeller(JOKE_TELLER_NAME, exchanger);
+        Recipient recipient = new Recipient(JOKE_RECIPIENT, exchanger);
 
-        new Thread(joe).start();
-        new Thread(alice).start();
+        new Thread(jokeTeller).start();
+        new Thread(recipient).start();
     }
 
     /**
