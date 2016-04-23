@@ -14,7 +14,7 @@ import java.util.concurrent.Exchanger;
  */
 public class KnockKnock {
 
-    private static final String JOKE_TELLER_NAME = "Joe";
+    private static final String PUNSTER_NAME = "Joe";
     private static final String JOKE_RECIPIENT = "Alice";
 
     /**
@@ -23,10 +23,10 @@ public class KnockKnock {
     public static void startJoke() {
         final Exchanger<String> exchanger = new Exchanger<>();
 
-        JokeTeller jokeTeller = new JokeTeller(JOKE_TELLER_NAME, exchanger);
+        Punster punster = new Punster(PUNSTER_NAME, exchanger);
         Recipient recipient = new Recipient(JOKE_RECIPIENT, exchanger);
 
-        new Thread(jokeTeller).start();
+        new Thread(punster).start();
         new Thread(recipient).start();
     }
 
