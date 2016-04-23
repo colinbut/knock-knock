@@ -21,24 +21,27 @@ public class Punster extends Person {
     }
 
     /**
+     * Knock the door!
      *
-     * @return
+     * @return "Knock, Knock"
      */
     public String knockOnDoor() {
         return "Knock, Knock";
     }
 
     /**
+     * Give the response back to say who you are
      *
-     * @return
+     * @return who are you?
      */
     public String giveVariableResponse() {
         return "Woo";
     }
 
     /**
+     * Delivering the final pun
      *
-     * @return
+     * @return the final punch line
      */
     public String deliverPunchLine() {
         return "Don't get too excited. It's just a joke";

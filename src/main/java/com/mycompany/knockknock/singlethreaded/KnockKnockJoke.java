@@ -12,6 +12,9 @@ package com.mycompany.knockknock.singlethreaded;
  */
 public class KnockKnockJoke {
 
+    private static final String PUNSTER_NAME = "Joe";
+    private static final String RECIPIENT_NAME = "ALICE";
+
     /**
      * Main entry
      *
@@ -19,8 +22,8 @@ public class KnockKnockJoke {
      */
     public static void main(String[] args) {
 
-        Punster joe = new Punster("Joe");
-        Recipient alice = new Recipient("Alice");
+        Punster joe = new Punster(PUNSTER_NAME);
+        Recipient alice = new Recipient(RECIPIENT_NAME);
 
         System.out.println(joe.knockOnDoor());
         System.out.println(alice.giveResponse());

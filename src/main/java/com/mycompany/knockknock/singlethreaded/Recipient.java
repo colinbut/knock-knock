@@ -19,10 +19,21 @@ public class Recipient extends Person {
         super(name);
     }
 
+    /**
+     * Give response
+     *
+     * @return asking who is there?
+     */
     public String giveResponse() {
         return "Who's there?";
     }
 
+    /**
+     * Give the repetitive response
+     *
+     * @param reply the reply to respond to
+     * @return asking who it is?
+     */
     public String giveRepitionResponse(String reply) {
         return reply + " who?";
     }
