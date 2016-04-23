@@ -10,7 +10,7 @@ package com.mycompany.knockknock;
  *
  * @author colin
  */
-public class Person {
+public abstract class Person {
 
     protected final String name;
 

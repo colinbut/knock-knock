@@ -8,11 +8,11 @@ package com.mycompany.knockknock;
 import java.util.concurrent.Exchanger;
 
 /**
- * Second Person - Alice
+ * Second Person - Recipient
  *
  * @author colin
  */
-public class Alice extends Person implements Runnable {
+public class Recipient extends Person implements Runnable {
 
     private Exchanger<String> exchanger;
 
@@ -22,7 +22,7 @@ public class Alice extends Person implements Runnable {
      * @param name name of the Person
      * @param exchanger a mechanism to exchange
      */
-    public Alice(String name, Exchanger<String> exchanger) {
+    public Recipient(String name, Exchanger<String> exchanger) {
         super(name);
         this.exchanger = exchanger;
     }
