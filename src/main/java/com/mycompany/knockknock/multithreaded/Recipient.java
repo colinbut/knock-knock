@@ -5,6 +5,9 @@
  */
 package com.mycompany.knockknock.multithreaded;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.Exchanger;
 
 /**
@@ -13,6 +16,8 @@ import java.util.concurrent.Exchanger;
  * @author colin
  */
 public class Recipient extends Person implements Runnable {
+
+    private static final Logger LOG = LoggerFactory.getLogger(Recipient.class);
 
     private Exchanger<String> exchanger;
 
@@ -43,7 +48,7 @@ public class Recipient extends Person implements Runnable {
 
 
         } catch (InterruptedException e) {
-            System.err.println(e);
+            LOG.error("{}", e);
         }
     }
 }

@@ -5,6 +5,9 @@
  */
 package com.mycompany.knockknock.multithreaded;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.Exchanger;
 
 /**
@@ -14,6 +17,8 @@ import java.util.concurrent.Exchanger;
  */
 public class KnockKnock {
 
+    private static final Logger LOG = LoggerFactory.getLogger(KnockKnock.class);
+
     private static final String PUNSTER_NAME = "Joe";
     private static final String JOKE_RECIPIENT = "Alice";
 
@@ -21,11 +26,18 @@ public class KnockKnock {
      * Starts the joke around
      */
     public static void startJoke() {
+
+        LOG.info("Starting Knock Knock Joke");
+
         final Exchanger<String> exchanger = new Exchanger<>();
 
         Punster punster = new Punster(PUNSTER_NAME, exchanger);
-        Recipient recipient = new Recipient(JOKE_RECIPIENT, exchanger);
+        LOG.debug("Created Punster: {}", punster);
 
+        Recipient recipient = new Recipient(JOKE_RECIPIENT, exchanger);
+        LOG.debug("Created recipient: {}", recipient);
+
+        LOG.debug("Starting the conversation between the Punster and the Recipient");
         new Thread(punster).start();
         new Thread(recipient).start();
     }
