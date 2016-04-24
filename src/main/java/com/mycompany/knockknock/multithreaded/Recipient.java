@@ -36,19 +36,43 @@ public class Recipient extends Person implements Runnable {
     @Override
     public void run() {
 
+        LOG.trace(">> run()");
+
         try {
-            String reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Who's there?");
-            System.out.println(reply);
-
-            reply = exchanger.exchange(KnockKnock.displayWhoSaysWhat(name) + "Dozen" + " who?");
-            System.out.println(reply);
-
-            reply = exchanger.exchange("");
-            System.out.println(reply);
-
+            exchangeJokeWithPunster();
 
         } catch (InterruptedException e) {
             LOG.error("{}", e);
         }
+
+        LOG.trace("<< run()");
+    }
+
+    /**
+     * Exchanging joke conversation with the Punster
+     *
+     * @throws InterruptedException
+     */
+    private void exchangeJokeWithPunster() throws InterruptedException {
+        String exchangeMessageWithPunster = KnockKnock.displayWhoSaysWhat(name) + "Who's there?";
+        if(LOG.isDebugEnabled()) {
+            LOG.debug(exchangeMessageWithPunster);
+        }
+
+        String reply = exchanger.exchange(exchangeMessageWithPunster);
+        LOG.debug("Received reply {} from Punster ", reply);
+        System.out.println(reply);
+
+        String askingForWhoMessage = KnockKnock.displayWhoSaysWhat(name) + "Dozen" + " who?";
+        if(LOG.isDebugEnabled()) {
+            LOG.debug(askingForWhoMessage);
+        }
+
+        reply = exchanger.exchange(askingForWhoMessage);
+        LOG.debug("Received reply {} from Punster", reply);
+        System.out.println(reply);
+
+        reply = exchanger.exchange("");
+        System.out.println(reply);
     }
 }
