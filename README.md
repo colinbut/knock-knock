@@ -3,7 +3,7 @@
 ![Image of Knock Knock]
 (src/main/resources/etc/knock-knock.png)
 
-Example Joke:
+_Example Joke:_
 
 **The punster:** Knock, knock!    
 **The recipient:** Who's there?     
@@ -11,7 +11,7 @@ Example Joke:
 **The recipient:** Woo who?    
 **The punster:** Don't get excited. It's just a joke.     
 
-Another Example:
+_Another Example:_
 
 **The punster:** Knock, knock.    
 **The recipient:** Who’s there?    
