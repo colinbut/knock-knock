@@ -1,4 +1,4 @@
-## knock-knock Jokes
+## Knock-Knock Jokes
 
 ![Image of Knock Knock]
 (src/main/resources/etc/knock-knock.png)
