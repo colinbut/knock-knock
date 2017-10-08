@@ -1,7 +1,6 @@
 ## Knock-Knock Jokes
 
-![Image of Knock Knock]
-(src/main/resources/etc/knock-knock.png)
+![Image of Knock Knock](src/main/resources/etc/knock-knock.png)
 
 _Example Joke:_
 
