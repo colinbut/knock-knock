@@ -17,3 +17,7 @@ _Another Example:_
 **The punster:** Dozen.    
 **The recipient:** Dozen who?    
 **The punster:** Doesn't anybody want to let me in?    
+
+## Author
+
+Colin But.
