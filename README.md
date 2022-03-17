@@ -21,6 +21,7 @@ _Another Example:_
 ## Tech
 
 - Java
+- LogBack
 
 ## Author
 
